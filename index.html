@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="chatApp"> <!--Initialize Angular app-->
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+    <form ng-controller="ChatAppController">
+    <div class="navbar">
+     <i class="fa fa-angle-left"></i>   <!--Display icon-->
+     <h4>Activity</h4>
+     <i class="fa fa-navicon"></i>      <!--Display icon-->
+    </div>
+    <ul>
+      <li ng-repeat="activity in recentActivities">     <!--Repeats template for each activity in recentActivity-->
+        <img ng-src="{{activity.authorAvatar}}" alt="Description">
+        <div class="text">
+          <p> <b>{{activity.author}}</b> {{activity.nodeTypeString}}</p>
+          <h3>{{activity.title}}</h3>
+          <p>{{activity.postDate|date:'medium'}}</p>
+        </div>
+        <br>
+        <hr>
+        </li>
+    </ul>
+    </form>
+    <script src="https://code.angularjs.org/1.6.4/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+    <script src="script.js"></script>
+    <script src="service.js"></script>
+    
+  </body>
+
+</html>
